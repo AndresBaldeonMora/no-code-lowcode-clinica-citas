@@ -1,4 +1,10 @@
 require("dotenv").config(); // Cargar variables de entorno desde el archivo .env
+
+// Verifica si las variables de entorno están cargadas
+console.log("SendGrid API Key:", process.env.SENDGRID_API_KEY);
+console.log("Airtable API Key:", process.env.AIRTABLE_API_KEY);
+console.log("Airtable Base URL:", process.env.AIRTABLE_BASE);
+
 const express = require("express");
 const sgMail = require("@sendgrid/mail");
 const bodyParser = require("body-parser");

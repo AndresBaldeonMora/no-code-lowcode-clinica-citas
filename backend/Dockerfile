@@ -1,20 +1,19 @@
-# Usa una imagen base oficial de Node.js
-FROM node:18
+FROM node:18-alpine
 
-# Crea un directorio de trabajo dentro del contenedor
-WORKDIR /usr/src/app
+# Crear directorio de trabajo
+WORKDIR /backend
 
-# Copia los archivos de package.json y package-lock.json al contenedor
+# Copiar package.json y package-lock.json
 COPY package*.json ./
 
-# Instala las dependencias de Node.js
+# Instalar dependencias
 RUN npm install
 
-# Copia el resto del código al contenedor
+# Copiar el resto del código
 COPY . .
 
-# Expone el puerto 3000 (puerto en el que tu app corre)
+# Exponer el puerto (usa 3000 como en tu server.js)
 EXPOSE 3000
 
-# Comando para iniciar la app cuando el contenedor arranque
+# Comando de inicio
 CMD ["node", "server.js"]
